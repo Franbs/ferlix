@@ -46,13 +46,13 @@ Route::get('/payment', function() {
     return view("user.payment-form");
 });
 Route::get('/payment/loading', function() {
-    return view("payment-form");
+    return view("user.payment-form");
 });
 Route::get('/user', function() {
-    return view("user-form");
+    return view("user.user-form");
 });
 Route::get('/user/loading', function() {
-    return view("user-form");
+    return view("user.user-form");
 });
 Route::get('/stream', function() {
     return view("stream");

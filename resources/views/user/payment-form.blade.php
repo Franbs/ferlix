@@ -32,7 +32,7 @@
                         <input placeholder="Expiration date" class="textbox-n form-control mr-1" type="text" onfocus="(this.type='date')" id="date">
                     </div>
 
-                    <div class="col">
+                    <div class="col" style="margin-top: 3px">
                         <i class="bi bi-calendar mt-1"></i>
                     </div>
                 </div>
@@ -43,22 +43,22 @@
             </div>
 
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Dirección" aria-label="Direccion" aria-describedby="basic-addon2">
-                <input type="text" class="form-control" placeholder="Ciudad" aria-label="Ciudad" aria-describedby="basic-addon2">
+                <input type="text" class="form-control" placeholder="Address" aria-label="Address" aria-describedby="basic-addon2">
+                <input type="text" class="form-control" placeholder="City" aria-label="City" aria-describedby="basic-addon2">
             </div>
 
             <div class="input-group mb-5">
-                <input type="text" class="form-control" placeholder="Provincia" aria-label="Provincia" aria-describedby="basic-addon2">
-                <input type="text" class="form-control" placeholder="Código postal" aria-label="Codigo postal" aria-describedby="basic-addon2">
+                <input type="text" class="form-control" placeholder="Province" aria-label="Province" aria-describedby="basic-addon2">
+                <input type="text" class="form-control" placeholder="Postal code" aria-label="Postal code" aria-describedby="basic-addon2">
             </div>
 
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
-                        <button type="submit" class="btn btn-primary justify-content-center">Submit</button>
+                        <button type="submit" class="btn btn-primary justify-content-center">Buy</button>
                     </div>
                 </div>
-            </div>            
+            </div>
         </div>
     </form>
 </body>
