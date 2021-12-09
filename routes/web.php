@@ -55,13 +55,13 @@ Route::get('/user/loading', function() {
     return view("user.user-form");
 });
 Route::get('/stream', function() {
-    return view("stream");
+    return view("user.stream");
 });
 Route::get('/stream/fav', function() {
-    return view("stream");
+    return view("user.stream");
 });
 Route::get('/stream/next-episode', function() {
-    return view("stream");
+    return view("user.stream");
 });
 Route::get('/favorites', function() {
     return view("favorites");
