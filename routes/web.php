@@ -64,10 +64,10 @@ Route::get('/stream/next-episode', function() {
     return view("user.stream");
 });
 Route::get('/favorites', function() {
-    return view("favorites");
+    return view("user.favorites");
 });
 Route::get('/favorites/fav', function() {
-    return view("favorites");
+    return view("user.favorites");
 });
 
 /* Administrador */
