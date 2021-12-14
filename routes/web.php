@@ -19,7 +19,7 @@ Route::get('/', function() {
     return view("home");
 });
 
-Route::get('/billboard', 'App\Http\Controllers\MovieController@list');
+Route::get('/billboard', 'MovieController@list');
 
 Route::get('/bilboard?filter="{filter}"', function($filter) {
     return view("billboard", compact($filter));
