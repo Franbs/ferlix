@@ -65,9 +65,9 @@ Route::get('/stream/fav', function() {
 Route::get('/stream/next-episode', function() {
     return view("user.stream");
 });
-Route::get('/favorites', function() {
-    return view("user.favorites");
-});
+
+Route::get('/favorites', [MovieController::class, 'list']);
+
 Route::get('/favorites/fav', function() {
     return view("user.favorites");
 });
