@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\ViewServiceProvider;
+use App\Http\Controllers\{MovieController};
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,8 @@ Route::get('/', function() {
     return view("home");
 });
 
-Route::get('/billboard', 'MovieController@list');
+//Route::get('/billboard', 'MovieController@list');
+Route::get('/billboard', [MovieController::class, 'list']);
 
 Route::get('/bilboard?filter="{filter}"', function($filter) {
     return view("billboard", compact($filter));
