@@ -64,3 +64,64 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## 01. Instalacion Laravel
+
+
+
+## 02 Diagrama de casos de uso
+
+El diagrama de casos de uso es una forma de diagrama de comportamiento en lenguaje de modelado unificado, con la que se representan procesos empresariales, así como sistemas y procesos de programación orientada a objetos.
+
+## 03. Diagrama de base de datos
+
+Un diagrama de base de datos es una herramienta visual utilizada para construir y organizar bases de datos. Puede mostrar un sistema de base de datos completo o sólo algunas partes de él. También conocido como esquema de base de datos, esta herramienta organiza los datos e ilustra las relaciones que se desarrollan entre los distintos objetos del sistema.
+
+## 04. Mockups
+
+Un mockup es un modelo o un prototipo que se utiliza para exhibir o probar un diseño.
+
+- Home
+
+- Lista de Peliculas
+
+- Resultado de busqueda
+
+- Pantalla de Login
+
+- Formulario de registro
+
+- Formulario de pago
+
+- Formulario datos de usuario
+
+- Visualizar streaming
+
+- Pagina favoritos/recomendados 
+
+- Lista de usuarios
+
+- Lista de peliculas
+
+- Información de usuario
+
+- Pagina de autorización
+
+- Insertar/modificar pelicula
+
+
+## 05. Lista de URLs 
+
+
+
+## 06. Crear la base de datos
+
+La base de datos se ha creado mediante migraciones. 
+
+## 07. Programar las vistas
+
+
+
+## 08. Crear la página de la home.
+
