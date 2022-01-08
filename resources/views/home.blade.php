@@ -13,7 +13,7 @@
             {{-- <img src="/img/logo-transparent.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" loading="lazy" height="500"> --}}
             Si no está en Ferlix, no existe
         </h1>
-        {{-- <h2>Si no está en Ferlix, no existe2</h2> --}}
+        {{-- <h2>Si no está en Ferlix, no existe</h2> --}}
         {{-- <div class="d-grid gap-2 d-md-flex justify-content-md-start">
           <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
           <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
