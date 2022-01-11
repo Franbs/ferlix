@@ -1,10 +1,8 @@
 <?php
 
-use App\Http\Controllers\MovieController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\ViewServiceProvider;
-// use App\Http\Controllers\{MovieController};
-
+use App\Http\Controllers\{MovieController};
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,12 +14,15 @@ use Illuminate\View\ViewServiceProvider;
 |
 */
 
-/* # */
 Route::get('/', function() {
     return view("home");
 });
 
-//Route::get('/billboard', 'MovieController@list');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
 Route::get('/billboard', [MovieController::class, 'list']);
 
 Route::get('/bilboard?filter="{filter}"', function($filter) {
@@ -104,3 +105,4 @@ Route::get('/media-list/add', function() {
 Route::get('/media-list/discard', function() {
     return view("media-list-info");
 });
+require __DIR__.'/auth.php';
