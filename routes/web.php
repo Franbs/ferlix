@@ -22,7 +22,7 @@ Route::get('/', function() {
 });
 
 //Route::get('/billboard', 'MovieController@list');
-Route::get('/billboard', [MovieController::class, 'billboard']);
+Route::get('/billboard', [MovieController::class, 'billboard'])->name('billboard');
 
 Route::get('/bilboard?filter="{filter}"', function($filter) {
     return view("billboard", compact($filter));

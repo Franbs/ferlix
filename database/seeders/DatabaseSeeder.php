@@ -48,13 +48,9 @@ class UserSeeder extends Seeder
         //id 	name 	userName 	email 	hash 	rol 	auth 	block 	creditcard
         DB::table('users')->insert(['id' => 0, 
             'name' => 'Fran', 
-            'userName' => 'Franbs', 
             'email' => '12francescbs@gmail.com', 
             'password' => 'Hola123', 
-            'rol' => 'idk', 
-            'auth' => 'yes', 
-            'block' => false, 
-            'creditcard' => 'aaa'
+            'userName' => 'Franbs', 
         ]);
     }
 }

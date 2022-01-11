@@ -29,13 +29,13 @@
                     <div class="d-flex flex-row-reverse">
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="navbar-nav me-2 mb-2 mb-lg-0">
-                                <li class="nav-item active"><button type="button" class="btn btn-outline-danger me-3">Cartelera</button></li>
+                                <li class="nav-item active"><a href="{{ route('billboard') }}"><button type="button" class="btn btn-outline-danger me-3">Billboard</button></a></li>
                                 @if (auth()->check())
                                     <li class="nav-item"><a href="{{ route('login.destroy') }}"><button type="button" class="btn btn-outline-primary me-3">Log out</button></a></li>
                                     <p>Welcome {{ auth()->user()->name }}</p>
                                 @else
                                     <li class="nav-item"><a href="{{ route('login.index') }}"><button type="button" class="btn btn-outline-primary me-3">Log in</button></a></li>
-                                    <li class="nav-item"><a href="{{ route('register.index') }}"><button type="button" class="btn btn-primary">Suscribete ya!!</button></a></li>
+                                    <li class="nav-item"><a href="{{ route('register.index') }}"><button type="button" class="btn btn-primary">Sign up</button></a></li>
                                 @endif
                             </ul>
                         </div>

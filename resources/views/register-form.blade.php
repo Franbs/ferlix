@@ -1,4 +1,4 @@
-@extends("layouts.forms")
+@extends("layouts.main")
 
 @section("page-title", "Register")
 
