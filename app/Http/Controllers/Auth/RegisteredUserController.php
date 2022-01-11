@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Inertia\Inertia;
 
 class RegisteredUserController extends Controller
 {
@@ -20,7 +21,7 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        return view('register-form');
     }
 
     /**
@@ -33,10 +34,11 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+        $request->flash();
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'hash' => ['required', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
@@ -46,10 +48,10 @@ class RegisteredUserController extends Controller
             'rol' => "User",
             'auth' => "Null",
             'block' => 0,
-            'userName' => "Null",
-            'creditCard' => "Null"
+            'userName' => $request->userName, // "null"
+            'creditCard' => "Null",
         ]);
-
+        
         event(new Registered($user));
 
         Auth::login($user);

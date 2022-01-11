@@ -12,44 +12,37 @@
         <div class="text-center mb-2">
           <img src="/img/logo-transparent.png" alt="Logo" srcset="" height="200" style="background: transparent;">
         </div>
-        <form class="row d-flex justify-content-center align-items-center" method="GET" >
-          <!-- Email input -->
+        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+        
+        {{-- Form --}}
+        <form action="{{ route('register') }}" class="row d-flex justify-content-center align-items-center" method="POST" >
+          @csrf
+          <!-- UserName input -->
           <div class="form-outline mb-4">
-            <input type="text" id="userName_input" class="form-control form-control-lg" placeholder="Nombre de usuario" />
+            <input type="text" id="userName_input" name="userName" class="form-control form-control-lg" placeholder="Nombre de usuario" value="{{old("userName")}}"/>
           </div>
 
+          {{-- Name input--}}
           <div class="form-outline mb-4">
-            <input type="text" id="name_input" class="form-control form-control-lg" placeholder="Nombre" />
+            <input type="text" id="name_input" name="name" class="form-control form-control-lg" placeholder="Nombre" value="{{old("name")}}"/>
           </div>
 
+          {{-- Email input--}}
           <div class="form-outline mb-4">
-            <input type="email" id="email_input" class="form-control form-control-lg" placeholder="Correo electrónico" />
+            <input type="email" id="email_input" name="email" class="form-control form-control-lg" placeholder="Correo electrónico" value="{{old("email")}}"/>
           </div>
 
-          <!-- Password input -->
+          <!-- Password input (hash) -->
           <div class="form-outline mb-4">
-            <input type="password" id="password_input" class="form-control form-control-lg" placeholder="Contraseña" />
+            <input type="password" id="password_input" name="hash" class="form-control form-control-lg" placeholder="Contraseña" value="{{old("hash")}}"/>
             {{-- <label class="form-label" for="form1Example23">Contraseña</label> --}}
-          </div>
-
-          <div class="d-flex justify-content-around align-items-center mb-4">
-            <!-- Checkbox -->
-            {{-- <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="form1Example3"
-                checked
-              />
-              <label class="form-check-label" for="form1Example3"> Remember me </label>
-            </div> --}}
-            {{-- <a href="#!">Forgot password?</a> --}}
           </div>
 
           <!-- Submit button -->
           <button type="submit" class="btn btn-primary btn-lg btn-block mb-4">Registrarse</button>
-          <button type="button" class="btn btn-secondary btn-lg btn-block">Iniciar sesión</button>
+          <a href="{{ route('login') }}" class="btn btn-outline-secondary btn-lg btn-block mb-4">
+            Iniciar sesión
+          </a>
 
         </form>
       </div>

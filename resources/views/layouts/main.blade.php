@@ -29,9 +29,27 @@
                     <div class="d-flex flex-row-reverse">
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="navbar-nav me-2 mb-2 mb-lg-0">
-                                <li class="nav-item active"><button type="button" class="btn btn-outline-danger me-3">Cartelera</button></li>
-                                <li class="nav-item"><button type="button" class="btn btn-outline-primary me-3">Iniciar Sesión</button></li>
-                                <li class="nav-item"><button type="button" class="btn btn-primary">Suscribete ya!!</button></li>
+                                @auth
+                                    <a href="{{ route('billboard') }}">
+                                        <li class="nav-item active"><button type="button" class="btn btn-outline-danger me-3">Cartelera</button></li>
+                                    </a>
+                                    <form action="{{ route('logout') }}" method="post">
+                                        @csrf
+                                        <button class="btn btn-outline-primary me-3" type="submit">Cerrar sesión</button>
+                                    </form>
+                                @endauth
+                                @guest
+                                    <a href="{{ route('billboard') }}">
+                                        <li class="nav-item active"><button type="button" class="btn btn-outline-danger me-3">Cartelera</button></li>
+                                    </a>
+                                    <a href="{{ route('login') }}">
+                                        <li class="nav-item"><button type="button" class="btn btn-outline-primary me-3">Iniciar Sesión</button></li>
+                                    </a>
+                                    <a href="{{ route('register') }}">
+                                        <li class="nav-item"><button type="button" class="btn btn-primary">Registrarse</button></li>
+                                    </a>
+                                @endguest
+
                             </ul>
                         </div>
                     </div>

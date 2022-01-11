@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\ViewServiceProvider;
 use App\Http\Controllers\{MovieController};
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +27,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/billboard', [MovieController::class, 'list']);
+Route::get('/billboard', [MovieController::class, 'list'])->name("billboard");
 
 Route::get('/bilboard?filter="{filter}"', function($filter) {
     return view("billboard", compact($filter));
@@ -31,18 +35,22 @@ Route::get('/bilboard?filter="{filter}"', function($filter) {
 Route::get('/bilboard?search="{search}"', function($search) {
     return view("bilboard", compact($search));    
 });
-Route::get('/login', function() {
-    return view("login-form");
-});
-Route::get('/login/loading', function() {
-    return view("login-form");
-});
-Route::get('/register', function() {
-    return view("register-form");
-});
-Route::get('/register/loading', function() {
-    return view("register-form");
-});
+
+/* Route::get('/login', [AuthenticatedSessionController::class, 'create'])
+                ->middleware('guest')
+                ->name('login');
+
+Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+                ->middleware('guest'); */
+
+Route::get('/register',  [RegisteredUserController::class, 'create'])
+                ->middleware('guest')
+                ->name('register');
+
+Route::post('/register', [RegisteredUserController::class, 'store'])
+                ->middleware('guest')
+                ->name("registerLoading");
+
 
 /* USUARIO */
 
