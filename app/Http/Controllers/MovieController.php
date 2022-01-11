@@ -13,8 +13,13 @@ class MovieController extends Controller
         $this->moviesModel = new Movie();
     }
 
-    public function list()
+    public function billboard()
     {
         return view("/billboard")->with(["movies"=>$this->moviesModel->all()]);
+    }
+
+    public function favorites()
+    {
+        return view("/user.favorites")->with(["movies"=>$this->moviesModel->all()]);
     }
 }

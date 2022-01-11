@@ -3,7 +3,7 @@
 use App\Http\Controllers\MovieController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\ViewServiceProvider;
-// use App\Http\Controllers\{MovieController};
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +22,7 @@ Route::get('/', function() {
 });
 
 //Route::get('/billboard', 'MovieController@list');
-Route::get('/billboard', [MovieController::class, 'list']);
+Route::get('/billboard', [MovieController::class, 'billboard']);
 
 Route::get('/bilboard?filter="{filter}"', function($filter) {
     return view("billboard", compact($filter));
@@ -30,18 +30,27 @@ Route::get('/bilboard?filter="{filter}"', function($filter) {
 Route::get('/bilboard?search="{search}"', function($search) {
     return view("bilboard", compact($search));    
 });
-Route::get('/login', function() {
+/*Route::get('/login', function() {
     return view("login-form");
-});
-Route::get('/login/loading', function() {
+});*/
+Route::get('/login', [UserController::class, 'login'])->name('login.index');
+
+/*Route::get('/login/loading', function() {
     return view("login-form");
-});
-Route::get('/register', function() {
+});*/
+Route::post('/login', [UserController::class, 'start'])->name('login.start');
+
+Route::get('/logout', [UserController::class, 'destroy'])->name('login.destroy');
+
+/*Route::get('/register', function() {
     return view("register-form");
-});
-Route::get('/register/loading', function() {
+});*/
+Route::get('/register', [UserController::class, 'register'])->name('register.index');
+
+/*Route::get('/register/loading', function() {
     return view("register-form");
-});
+});*/
+Route::post('/register', [UserController::class, 'store'])->name('register.store');
 
 /* USUARIO */
 
@@ -67,7 +76,10 @@ Route::get('/stream/next-episode', function() {
     return view("user.stream");
 });
 
-Route::get('/favorites', [MovieController::class, 'list']);
+/*Route::get('/favorites', function() {
+    return view("user.favorites");
+});*/
+Route::get('/favorites', [MovieController::class, 'favorites']);
 
 Route::get('/favorites/fav', function() {
     return view("user.favorites");
