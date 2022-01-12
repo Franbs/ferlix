@@ -12,52 +12,37 @@
         <div class="text-center mb-2">
           <img src="/img/logo-transparent.png" alt="Logo" srcset="" height="200" style="background: transparent;">
         </div>
-
-        <form class="row d-flex justify-content-center align-items-center" method="POST" >
+        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+        
+        {{-- Form --}}
+        <form action="{{ route('register') }}" class="row d-flex justify-content-center align-items-center" method="POST" >
           @csrf
-          
-          <!-- Email input -->
+          <!-- UserName input -->
           <div class="form-outline mb-4">
-            <input type="text" name="name" id="name" class="form-control form-control-lg" placeholder="Name" />
+            <input type="text" id="userName_input" name="userName" class="form-control form-control-lg" placeholder="Nombre de usuario" value="{{old("userName")}}"/>
           </div>
 
-          {{--<div class="form-outline mb-4">
-            <input type="text" name="userName" id="userName" class="form-control form-control-lg" placeholder="Username" />
-          </div>--}}
-
+          {{-- Name input--}}
           <div class="form-outline mb-4">
-            <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="Email" />
+            <input type="text" id="name_input" name="name" class="form-control form-control-lg" placeholder="Nombre" value="{{old("name")}}"/>
           </div>
 
-          <!-- Password input -->
+          {{-- Email input--}}
           <div class="form-outline mb-4">
-            <input type="password" name="password" id="password" class="form-control form-control-lg" placeholder="Password" />
+            <input type="email" id="email_input" name="email" class="form-control form-control-lg" placeholder="Correo electrónico" value="{{old("email")}}"/>
+          </div>
+
+          <!-- Password input (hash) -->
+          <div class="form-outline mb-4">
+            <input type="password" id="password_input" name="hash" class="form-control form-control-lg" placeholder="Contraseña" value="{{old("hash")}}"/>
             {{-- <label class="form-label" for="form1Example23">Contraseña</label> --}}
           </div>
 
-          <div class="d-flex justify-content-around align-items-center mb-4">
-            <!-- Checkbox -->
-            {{-- <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="form1Example3"
-                checked
-              />
-              <label class="form-check-label" for="form1Example3"> Remember me </label>
-            </div> --}}
-            {{-- <a href="#!">Forgot password?</a> --}}
-          </div>
-
           <!-- Submit button -->
-          <div class="container">
-            <div class="row">
-              <div class="col text-center">
-                <button type="submit" class="btn btn-primary justify-content-center ps-5 pe-5 pt-2 pb-2">Sign up</button>
-              </div>
-            </div>
-          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block mb-4">Registrarse</button>
+          <a href="{{ route('login') }}" class="btn btn-outline-secondary btn-lg btn-block mb-4">
+            Iniciar sesión
+          </a>
 
         </form>
       </div>
