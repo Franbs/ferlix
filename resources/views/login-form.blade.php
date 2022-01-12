@@ -22,7 +22,7 @@
           </div>--}}
 
           <div class="form-outline mb-4">
-            <input type="text" name="name" id="name" class="form-control form-control-lg" placeholder="Name" />
+            <input type="text" name="email" id="email" class="form-control form-control-lg" placeholder="Name" />
             {{-- <label class="form-label" for="form1Example13">Nombre de usuario</label> --}}
           </div>
 
