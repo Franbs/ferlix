@@ -8,12 +8,14 @@
 
 <div class="container mt-5">
   {{-- Search bar --}}
-  <div class="row height d-flex justify-content-center align-items-center">
-    <div class="col-md-6">
-      <div class="form"> <i class="fa fa-search"></i> <input type="text" class="form-control form-input"
-          placeholder="Buscar..."> <span class="left-pan"><i class="fa fa-microphone"></i></span> </div>
+  <form action="{{ route('search') }}" method="get">
+    <div class="row height d-flex justify-content-center align-items-center">
+      <div class="col-md-6">
+        <div class="form"> <i class="fa fa-search"></i> <input type="text" name="search" class="form-control form-input"
+            placeholder="Buscar..."> <span class="left-pan"><i class="fa fa-microphone"></i></span> </div>
+      </div>
     </div>
-  </div>
+  </form>
 
   <div class="container">
     <div class="row justify-content-evenly ">
@@ -59,17 +61,23 @@
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-      @foreach ($movies as $movie)
-      <div class="col">
-        <div class="card shadow-sm">
-          <img class="card-img-top" src="{{$movie["image"]}}" alt="">
-          <div class="card-body text-center">
-            <h5 class="card-title">{{$movie["title"]}}</h5>
-            <button class="btn btn-outline-danger" type="button">Ver</button>
+      @if($movies->isNotEmpty())
+        @foreach ($movies as $movie)
+          <div class="col">
+            <div class="card shadow-sm">
+              <img class="card-img-top" src="{{$movie["image"]}}" alt="">
+              <div class="card-body text-center">
+                <h5 class="card-title">{{$movie["title"]}}</h5>
+                <button class="btn btn-outline-danger" type="button">Ver</button>
+              </div>
+            </div>
           </div>
+        @endforeach
+      @else 
+        <div>
+          <h2>No posts found</h2>
         </div>
-      </div>
-      @endforeach
+      @endif
 
     </div>
   </div>

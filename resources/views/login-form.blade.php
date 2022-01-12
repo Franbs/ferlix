@@ -17,8 +17,12 @@
           @csrf
           
           <!-- Email input -->
-          <div class="form-outline mb-4">
+          {{--<div class="form-outline mb-4">
             <input type="text" name="userName" id="userName" class="form-control form-control-lg" placeholder="Username" />
+          </div>--}}
+
+          <div class="form-outline mb-4">
+            <input type="text" name="name" id="name" class="form-control form-control-lg" placeholder="Name" />
             {{-- <label class="form-label" for="form1Example13">Nombre de usuario</label> --}}
           </div>
 
@@ -54,7 +58,6 @@
             <div class="row">
               <div class="col text-center">
                 <button type="submit" class="btn btn-primary justify-content-center ps-5 pe-5 pt-2 pb-2">Log in</button>
-                <button type="button" class="btn btn-secondary justify-content-center ps-5 pe-5 pt-2 pb-2">Sign up</button>
               </div>
             </div>
           </div>

@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Movie;
+use Illuminate\Support\Facades\DB;
 
 class MovieController extends Controller
 {
     public $moviesModel;
+    
     public function __construct()
     {
         $this->moviesModel = new Movie();
@@ -18,8 +20,13 @@ class MovieController extends Controller
         return view("/billboard")->with(["movies"=>$this->moviesModel->all()]);
     }
 
-    public function favorites()
-    {
-        return view("/user.favorites")->with(["movies"=>$this->moviesModel->all()]);
+    public function search(Request $request) {
+        $search = $request->input('search');
+
+        $users = DB::table('movies')
+                ->where('title', '=', '%'.$search.'%')
+                ->get();
+
+        return view('billboard', compact('movies'));
     }
 }

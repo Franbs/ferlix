@@ -12,23 +12,9 @@ class UserController extends Controller
         return view("/login-form");
     }
 
-    public function register()
-    {
-        return view("/register-form");
-    }
-
-    public function store() 
-    {
-        $user = User::create(request(['name' , 'userName', 'email', 'password']));
-
-        auth()->login($user);
-
-        return redirect()->to('/');
-    }
-
     public function start() 
     {
-        if (auth()->attempt(request(['userName', 'password'])) == false) {
+        if (auth()->attempt(request(['name', 'password'])) == false) {
             return back()->withErrors([
                 'message' => 'The username or password is invalid',
             ]);
@@ -40,6 +26,20 @@ class UserController extends Controller
     public function destroy() 
     {
         auth()->logout();
+
+        return redirect()->to('/');
+    }
+
+    public function register()
+    {
+        return view("/register-form");
+    }
+
+    public function store() 
+    {
+        $user = User::create(request(['name' , 'userName', 'email', 'password']));
+
+        auth()->login($user);
 
         return redirect()->to('/');
     }

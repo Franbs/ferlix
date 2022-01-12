@@ -50,7 +50,6 @@ class UserSeeder extends Seeder
             'name' => 'Fran', 
             'email' => '12francescbs@gmail.com', 
             'password' => 'Hola123', 
-            'userName' => 'Franbs', 
         ]);
     }
 }
