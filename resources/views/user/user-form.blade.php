@@ -70,7 +70,7 @@
         <div class="container">
             <div class="row">
                 <div class="col text-center">
-                    <button type="submit" class="btn btn-primary justify-content-center">Save</button>
+                    <button type="submit" class="btn btn-primary justify-content-center ps-5 pe-5 pt-2 pb-2">Save</button>
                 </div>
             </div>
         </div>

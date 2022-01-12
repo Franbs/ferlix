@@ -1,4 +1,4 @@
-@extends("layouts.forms")
+@extends("layouts.main")
 
 @section("page-title", "Register")
 
@@ -12,23 +12,26 @@
         <div class="text-center mb-2">
           <img src="/img/logo-transparent.png" alt="Logo" srcset="" height="200" style="background: transparent;">
         </div>
-        <form class="row d-flex justify-content-center align-items-center" method="GET" >
+
+        <form class="row d-flex justify-content-center align-items-center" method="POST" >
+          @csrf
+          
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <input type="text" id="userName_input" class="form-control form-control-lg" placeholder="Nombre de usuario" />
+            <input type="text" name="name" id="name" class="form-control form-control-lg" placeholder="Name" />
           </div>
 
-          <div class="form-outline mb-4">
-            <input type="text" id="name_input" class="form-control form-control-lg" placeholder="Nombre" />
-          </div>
+          {{--<div class="form-outline mb-4">
+            <input type="text" name="userName" id="userName" class="form-control form-control-lg" placeholder="Username" />
+          </div>--}}
 
           <div class="form-outline mb-4">
-            <input type="email" id="email_input" class="form-control form-control-lg" placeholder="Correo electrónico" />
+            <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="Email" />
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-4">
-            <input type="password" id="password_input" class="form-control form-control-lg" placeholder="Contraseña" />
+            <input type="password" name="password" id="password" class="form-control form-control-lg" placeholder="Password" />
             {{-- <label class="form-label" for="form1Example23">Contraseña</label> --}}
           </div>
 
@@ -48,8 +51,13 @@
           </div>
 
           <!-- Submit button -->
-          <button type="submit" class="btn btn-primary btn-lg btn-block mb-4">Registrarse</button>
-          <button type="button" class="btn btn-secondary btn-lg btn-block">Iniciar sesión</button>
+          <div class="container">
+            <div class="row">
+              <div class="col text-center">
+                <button type="submit" class="btn btn-primary justify-content-center ps-5 pe-5 pt-2 pb-2">Sign up</button>
+              </div>
+            </div>
+          </div>
 
         </form>
       </div>
