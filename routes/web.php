@@ -30,11 +30,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/billboard', [MovieController::class, 'list'])->name("billboard");
-
 Route::get('/bilboard?filter="{filter}"', function($filter) {
     return view("billboard", compact($filter));
 });
+
 Route::get('/bilboard?search="{search}"', function($search) {
     return view("bilboard", compact($search));    
 });
@@ -55,15 +54,16 @@ Route::post('/register', [RegisteredUserController::class, 'store'])
                 ->name("registerLoading");
 
 
-Route::get('/login', [UserController::class, 'login'])->name('login');
+// Route::get('/login', [UserController::class, 'login'])->name('login');
 
-Route::post('/login', [UserController::class, 'start'])->name('login.start');
+// Route::post('/login', [UserController::class, 'start'])->name('login.start');
 
-Route::get('/logout', [UserController::class, 'destroy'])->name('logout');
+// Route::get('/logout', [UserController::class, 'destroy'])->name('logout');
 
-Route::get('/register', [UserController::class, 'register'])->name('register');
+// Route::get('/register', [UserController::class, 'register'])->name('register');
 
-Route::post('/register', [UserController::class, 'store'])->name('register.store');
+// Route::post('/register', [UserController::class, 'store'])->name('register.store');
+
 /* Administrador */
 Route::get('/user-list', function() {
     return view("user-list");

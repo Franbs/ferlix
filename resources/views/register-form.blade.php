@@ -32,9 +32,9 @@
             <input type="email" id="email_input" name="email" class="form-control form-control-lg" placeholder="Correo electrónico" value="{{old("email")}}"/>
           </div>
 
-          <!-- Password input (hash) -->
+          <!-- Password input  -->
           <div class="form-outline mb-4">
-            <input type="password" id="password_input" name="hash" class="form-control form-control-lg" placeholder="Contraseña" value="{{old("hash")}}"/>
+            <input type="password" id="password_input" name="password" class="form-control form-control-lg" placeholder="Contraseña" value="{{old("hash")}}"/>
             {{-- <label class="form-label" for="form1Example23">Contraseña</label> --}}
           </div>
 
