@@ -34,9 +34,9 @@ class MovieSeeder extends Seeder
             'synopsis' => 'The Godfather synopsis', 
             'duration' => '2h 55m', 
             'type' => 'idk', 
-            'image' => 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY98_CR1,0,67,98_AL_.jpg', 
+            'image' => 'http://localhost/img/billboard/godfather.jpg', 
             'genre' => 'Crime, Drama', 
-            'file' => ''
+            'file' => 'http://localhost/videos/godfather.mp4'
         ]);
     }
 }
