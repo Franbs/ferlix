@@ -26,16 +26,16 @@
         <div class="col text-center">
             <video width="1280" height="720" controls>
                 <source src="" type="video/mp4">
-                Your browser does not support the video.
+                Tu navegador no soporta este formato de video.
             </video>
         </div>
     </div>
     <div class="row mt-5">
         <div class="col">
-            <h2>Synopsis</h2>
+            <h2>Descripción</h2>
         </div>
         <div class="col">
-            <button class="btn btn-primary float-end">Next chapter</button>
+            <button class="btn btn-primary float-end">Siguiente episodio</button>
         </div>
     </div>
     <div class="row mt-3">
