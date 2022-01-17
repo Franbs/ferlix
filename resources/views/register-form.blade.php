@@ -39,10 +39,13 @@
           </div>
 
           <!-- Submit button -->
-          <button type="submit" class="btn btn-primary btn-lg btn-block mb-4">Registrarse</button>
-          <a href="{{ route('login') }}" class="btn btn-outline-secondary btn-lg btn-block mb-4">
-            Iniciar sesión
-          </a>
+          <div class="container">
+            <div class="row">
+              <div class="col text-center">
+                <button type="submit" class="btn btn-primary justify-content-center ps-5 pe-5 pt-2 pb-2">Registrarse</button>
+              </div>
+            </div>
+          </div>
 
         </form>
       </div>

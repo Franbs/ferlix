@@ -22,13 +22,13 @@
           </div>--}}
 
           <div class="form-outline mb-4">
-            <input type="text" name="name" id="name" class="form-control form-control-lg" placeholder="Name" />
+            <input type="text" name="email" id="email" class="form-control form-control-lg" placeholder="Correo electrónico" />
             {{-- <label class="form-label" for="form1Example13">Nombre de usuario</label> --}}
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-4">
-            <input type="password" name="password" id="password" class="form-control form-control-lg" placeholder="Password" />
+            <input type="password" name="password" id="password" class="form-control form-control-lg" placeholder="Contraseña" />
             {{-- <label class="form-label" for="form1Example23">Contraseña</label> --}}
           </div>
 
@@ -57,7 +57,7 @@
           <div class="container">
             <div class="row">
               <div class="col text-center">
-                <button type="submit" class="btn btn-primary justify-content-center ps-5 pe-5 pt-2 pb-2">Log in</button>
+                <button type="submit" class="btn btn-primary justify-content-center ps-5 pe-5 pt-2 pb-2">Iniciar sesión</button>
               </div>
             </div>
           </div>
