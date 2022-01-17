@@ -55,7 +55,7 @@ Route::post('/register', [RegisteredUserController::class, 'store'])
 
 Route::get('/stream', function() {
     return view("user/stream");
-});
+})->name('stream');
 
 // Route::get('/login', [UserController::class, 'login'])->name('login');
 

@@ -36,7 +36,7 @@ class MovieSeeder extends Seeder
             'type' => 'idk', 
             'image' => 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY98_CR1,0,67,98_AL_.jpg', 
             'genre' => 'Crime, Drama', 
-            'file' => 'idk2'
+            'file' => ''
         ]);
     }
 }
@@ -46,11 +46,11 @@ class UserSeeder extends Seeder
     public function run() 
     {
         //id 	name 	userName 	email 	hash 	rol 	auth 	block 	creditcard
-        DB::table('users')->insert(['id' => 0, 
+        /*DB::table('users')->insert(['id' => 0, 
             'name' => 'Fran', 
             'email' => '12francescbs@gmail.com', 
             'password' => 'Hola123', 
-        ]);
+        ]);*/
         DB::table('users')->insert(['id' => 0, 
             'name' => 'Fran', 
             'email' => 'francescbs@gmail.com', 
