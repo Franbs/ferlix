@@ -26,9 +26,9 @@ Route::get('/billboard', [MovieController::class, 'billboard'])->name('billboard
 
 Route::get('/search', [MovieController::class, 'billboard'])->name('search');
 
-Route::get('/dashboard', function () {
+/*Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard');*/
 
 Route::get('/bilboard?filter="{filter}"', function($filter) {
     return view("billboard", compact($filter));
@@ -38,12 +38,12 @@ Route::get('/bilboard?search="{search}"', function($search) {
     return view("bilboard", compact($search));    
 });
 
-/* Route::get('/login', [AuthenticatedSessionController::class, 'create'])
+Route::get('/login', [AuthenticatedSessionController::class, 'create'])
                 ->middleware('guest')
                 ->name('login');
 
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])
-                ->middleware('guest'); */
+                ->middleware('guest');
 
 Route::get('/register',  [RegisteredUserController::class, 'create'])
                 ->middleware('guest')
