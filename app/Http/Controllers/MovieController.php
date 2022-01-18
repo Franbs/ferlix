@@ -23,7 +23,7 @@ class MovieController extends Controller
     public function search(Request $request) {
         $request->flash();
 
-        $movies = $this->movie->query();
+        $movies = $this->moviesModel->query();
 
         if ($request->filled('genre')) {
             $movies->genre($request->input('genre'));
@@ -41,9 +41,9 @@ class MovieController extends Controller
             $movies->category($request->input('category'));
         }*/
 
-        $movies->joinGenre();
+        // $movies->joinGenre();
 
-        return view('billboard')->with('movies', $movies->get(['movies.*', 'genres.name as genre']));
+        return view('billboard')->with('movies', $movies->get());
 
         /*$search = $request->input('search');
 
