@@ -7,50 +7,43 @@
 <h1 class="text-center text-danger">Películas y Series</h1>
 
 <div class="container mt-5">
-  {{-- Search bar --}}
   <form action="{{ route('search') }}" method="get">
+    {{-- SEARCH BAR --}}
     <div class="row height d-flex justify-content-center align-items-center">
       <div class="col-md-6">
-        <div class="form"> <i class="fa fa-search"></i> <input type="text" name="search" class="form-control form-input"
-            placeholder="Buscar..."> <span class="left-pan"><i class="fa fa-microphone"></i></span> </div>
+        <div>
+          <input type="text" name="search" class="form-control form-input" placeholder="Buscar..."> 
+          <button class="btn btn-primary">Enviar</button>            
+        </div>
+      </div>
+    </div>
+    {{-- FILTERS --}}
+    <div class="container">
+      <div class="row justify-content-evenly ">
+        <div class="dropdown mt-4 col-4 text-center">
+          <select class="form-select" name="genre" id="genre_select">
+            <option value="action">Acción</option>
+            <option value="scienceFiction">Ciencia Ficción</option>
+            <option value="romance">Romance</option>
+            <option value="adventure">Aventuras</option>
+            <option value="cartoon">Dibujos animados</option>
+          </select>
+        </div>
+        <div class="dropdown mt-4 col-4 text-center">
+          <select class="form-select" name="dateSort" id="dateSort_select">
+            <option value="asc">Ascendiente</option>
+            <option value="desc">Descendiente</option>
+          </select>
+        </div>
+        <div class="dropdown mt-4 col-4 text-center">
+          <select class="form-select" name="movieSerie" id="movieSerie_select">
+            <option value="movie">Pelicula</option>
+            <option value="serie">Serie</option>
+          </select>
+        </div>
       </div>
     </div>
   </form>
-
-  <div class="container">
-    <div class="row justify-content-evenly ">
-      <div class="dropdown mt-4 col-4 text-center">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="genre_dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-          Género
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="genre_dropdownMenuLink">
-          <li><a class="dropdown-item" href="#">Acción</a></li>
-          <li><a class="dropdown-item" href="#">Ciencia Ficción</a></li>
-          <li><a class="dropdown-item" href="#">Romance</a></li>
-          <li><a class="dropdown-item" href="#">Aventuras</a></li>
-          <li><a class="dropdown-item" href="#">Dibujos animados</a></li>
-        </ul>
-      </div>
-      <div class="dropdown mt-4 col-4 text-center">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="date_dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-          Fecha
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="date_dropdownMenuLink">
-          <li><a class="dropdown-item" href="#">Ascendente</a></li>
-          <li><a class="dropdown-item" href="#">Descendente</a></li>
-        </ul>
-      </div>
-      <div class="dropdown mt-4 col-4 text-center">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="filmOrMovie_dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-          Pelicula / Serie
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="filmOrMovie_dropdownMenuLink">
-          <li><a class="dropdown-item" href="#">Pelicula</a></li>
-          <li><a class="dropdown-item" href="#">Serie</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
   
 
   
