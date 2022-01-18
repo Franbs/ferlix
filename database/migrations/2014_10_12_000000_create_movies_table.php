@@ -23,7 +23,6 @@ class CreateMoviesTable extends Migration
             $table->string('image');
             $table->string('genre');
             $table->string('file');
-
         });
     }
 

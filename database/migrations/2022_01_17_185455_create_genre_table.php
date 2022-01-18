@@ -13,8 +13,6 @@ class CreateGenreTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('genres');
-        Schema::dropIfExists('genresXmovie');
         Schema::create('genres', function (Blueprint $table) {
             $table->id();
             $table->string('name');

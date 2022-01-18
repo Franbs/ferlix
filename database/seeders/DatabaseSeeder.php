@@ -34,21 +34,9 @@ class MovieSeeder extends Seeder
             'synopsis' => 'The Godfather synopsis', 
             'duration' => '2h 55m', 
             'type' => 'idk', 
-            'image' => 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY98_CR1,0,67,98_AL_.jpg', 
-            'genre' => 'Crime, Drama', 
+            'image' => 'http://localhost/img/billboard/godfather.jpg', 
             'file' => 'idk2'
         ]);
-        DB::table('movies')->insert(['id' => 0, 
-            'title' => 'The Godfather', 
-            'year' => 1972, 
-            'synopsis' => 'The Godfather synopsis', 
-            'duration' => '2h 55m', 
-            'type' => 'idk', 
-            'image' => 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY98_CR1,0,67,98_AL_.jpg', 
-            'genre' => 'Crime, Drama', 
-            'file' => 'idk2'
-        ]);
-        
     }
 }
 
@@ -57,11 +45,6 @@ class UserSeeder extends Seeder
     public function run() 
     {
         //id 	name 	userName 	email 	hash 	rol 	auth 	block 	creditcard
-        DB::table('users')->insert(['id' => 0, 
-            'name' => 'Fran', 
-            'email' => '12francescbs@gmail.com', 
-            'password' => 'Hola123', 
-        ]);
         DB::table('users')->insert(['id' => 0, 
             'name' => 'Fran', 
             'email' => 'francescbs@gmail.com', 
