@@ -35,7 +35,7 @@ class MovieSeeder extends Seeder
             'duration' => '2h 55m', 
             'type' => 'idk', 
             'image' => 'http://localhost/img/billboard/godfather.jpg', 
-            'file' => 'idk2'
+            'file' => 'http://localhost/videos/godfather.mp4'
         ]);
         DB::table('movies')->insert([ 
             'title' => 'Soy leyenda', 

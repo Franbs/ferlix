@@ -53,6 +53,9 @@ Route::post('/register', [RegisteredUserController::class, 'store'])
                 ->middleware('guest')
                 ->name("registerLoading");
 
+Route::get('/stream', function() {
+    return view("user/stream");
+})->name('stream');
 
 // Route::get('/login', [UserController::class, 'login'])->name('login');
 
