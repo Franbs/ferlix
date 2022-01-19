@@ -35,7 +35,7 @@ class MovieSeeder extends Seeder
             'year' => 1972, 
             'synopsis' => 'The Godfather synopsis', 
             'duration' => '2h 55m', 
-            'type' => 'idk', 
+            'type' => 'serie', 
             'image' => 'http://localhost/img/billboard/godfather.jpg', 
             'file' => 'idk2'
         ]);
@@ -45,7 +45,7 @@ class MovieSeeder extends Seeder
             'year' => 2002, 
             'synopsis' => 'Soy leyenda synopsis', 
             'duration' => '2h 05m', 
-            'type' => 'film', 
+            'type' => 'pelicula', 
             'image' => 'http://localhost/img/billboard/soy_leyenda.jpeg', 
             'file' => 'idk2'
         ]);

@@ -11,9 +11,14 @@ class Movie extends Model
     public function scopeGenre($query, $input)
     {
         return $query
-            ->join('genresXmovie', 'movies.mo_id', '=', 'genresXmovie.movie_id')
+            ->join('genresXmovie', 'movies.id', '=', 'genresXmovie.movie_id')
             ->join('genres', 'genresXmovie.genre_id', '=', 'genres.id')
             ->where('genres.name', $input);
+    }
+
+    public function scopeType($query, $input)
+    {
+        return $query->where('movies.type', $input);
     }
 
     public function scopeJoinGenre($query)

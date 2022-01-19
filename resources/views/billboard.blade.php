@@ -36,9 +36,10 @@
           </select>
         </div>
         <div class="dropdown mt-4 col-4 text-center">
-          <select class="form-select" name="movieSerie" id="movieSerie_select">
-            <option value="movie">Pelicula</option>
-            <option value="serie">Serie</option>
+          <select class="form-select" name="type" id="type_select">
+            <option value="" {{ old('type') == '' ? 'selected' : '' }}>Peliculas y series</option>
+            <option value="pelicula" {{ old('type') == 'pelicula' ? 'selected' : '' }}>Pelicula</option>
+            <option value="serie" {{ old('type') == 'serie' ? 'selected' : '' }}>Serie</option>
           </select>
         </div>
       </div>
