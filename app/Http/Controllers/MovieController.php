@@ -19,8 +19,10 @@ class MovieController extends Controller
     {
         return view("/billboard")->with(["movies"=>$this->moviesModel->all()]);
     }
-
+    
     public function search(Request $request) {
+        // dd($request);
+        // var_dump($request);
         $request->flash();
 
         $movies = $this->moviesModel->query();
@@ -32,7 +34,7 @@ class MovieController extends Controller
         if ($request->filled('dateSort')) {
             $movies->sortDate($request->input('dateSort'));
         }
-
+       
 
         if ($request->filled('type')) {
             $movies->type($request->input('type'));

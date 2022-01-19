@@ -9,12 +9,14 @@
 <div class="container mt-5">
   <form action="{{ route('search') }}" method="get">
     {{-- SEARCH BAR --}}
-    <div class="row height d-flex justify-content-center align-items-center">
+    <div class="row height d-flex justify-content-center align-items-center mb-4">
       <div class="col-md-6">
         <div>
           <input type="text" name="search" class="form-control form-input" placeholder="Buscar..."> 
-          <button class="btn btn-primary">Enviar</button>            
         </div>
+      </div>
+      <div class="col-md-1">
+        <button class="btn btn-primary">Enviar</button>            
       </div>
     </div>
     {{-- FILTERS --}}
