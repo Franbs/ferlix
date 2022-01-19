@@ -29,10 +29,11 @@ class MovieController extends Controller
             $movies->genre($request->input('genre'));
         }
 
-        /*if ($request->filled('priceMax')) {
-            $movies->priceMax($request->input('priceMax'));
+        if ($request->filled('dateSort')) {
+            $movies->sortDate($request->input('dateSort'));
         }
 
+        /*
         if ($request->filled('name')) {
             $movies->name($request->input('name'));
         }
