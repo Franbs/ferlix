@@ -22,17 +22,18 @@
       <div class="row justify-content-evenly ">
         <div class="dropdown mt-4 col-4 text-center">
           <select class="form-select" name="genre" id="genre_select">
-            <option value="action">Acción</option>
-            <option value="scienceFiction">Ciencia Ficción</option>
-            <option value="romance">Romance</option>
-            <option value="adventure">Aventuras</option>
-            <option value="cartoon">Dibujos animados</option>
+            <option value="" {{ old('genre') == "" ? "selected" : ""}}>Todas las categorias</option>
+            <option value="action" {{ old('genre') == "action" ? "selected" : ""}}>Acción</option>
+            <option value="scienceFiction" {{ old('genre') == "scienceFiction" ? "selected" : ""}}>Ciencia Ficción</option>
+            <option value="romance" {{ old('genre') == "romance" ? "selected" : ""}}>Romance</option>
+            <option value="adventure" {{ old('genre') == "adventure" ? "selected" : ""}}>Aventuras</option>
+            <option value="cartoon" {{ old('genre') == "cartoon" ? "selected" : ""}}>Dibujos animados</option>
           </select>
         </div>
         <div class="dropdown mt-4 col-4 text-center">
           <select class="form-select" name="dateSort" id="dateSort_select">
-            <option value="asc">Ascendiente</option>
-            <option value="desc">Descendiente</option>
+            <option value="asc" {{ old('dateSort') == "asc" ? "selected" : ""}}>Ascendiente</option>
+            <option value="desc" {{ old('dateSort') == "desc" ? "selected" : ""}}>Descendiente</option>
           </select>
         </div>
         <div class="dropdown mt-4 col-4 text-center">
