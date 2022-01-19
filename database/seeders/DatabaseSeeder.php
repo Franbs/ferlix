@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(MovieSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(GenreSeeder::class);
+        $this->call(GenreXmoviesSeeder::class);
     }
 }
 
@@ -33,22 +35,20 @@ class MovieSeeder extends Seeder
             'year' => 1972, 
             'synopsis' => 'The Godfather synopsis', 
             'duration' => '2h 55m', 
-            'type' => 'idk', 
+            'type' => 'serie', 
             'image' => 'http://localhost/img/billboard/godfather.jpg', 
             'file' => 'http://localhost/videos/godfather.mp4'
         ]);
+
         DB::table('movies')->insert([ 
             'title' => 'Soy leyenda', 
             'year' => 2002, 
             'synopsis' => 'Soy leyenda synopsis', 
             'duration' => '2h 05m', 
-            'type' => 'film', 
+            'type' => 'pelicula', 
             'image' => 'http://localhost/img/billboard/soy_leyenda.jpeg', 
-            'genre' => 'Adventure, Action', 
             'file' => 'idk2'
         ]);
-        
-        
     }
 }
 
@@ -61,6 +61,48 @@ class UserSeeder extends Seeder
             'name' => 'Fran', 
             'email' => 'francescbs@gmail.com', 
             'password' => Hash::make('Hola123'), 
+        ]);
+    }
+}
+
+
+class GenreSeeder extends Seeder 
+{
+    public function run() 
+    {
+        //id 	name 	userName 	email 	hash 	rol 	auth 	block 	creditcard
+    
+        DB::table('genres')->insert([ 
+            'name' => 'action' 
+        ]);
+        DB::table('genres')->insert([ 
+            'name' => 'scienceFiction' 
+        ]);
+        DB::table('genres')->insert([ 
+            'name' => 'romance' 
+        ]);
+        DB::table('genres')->insert([ 
+            'name' => 'adventure' 
+        ]);
+        DB::table('genres')->insert([ 
+            'name' => 'cartoon' 
+        ]);
+    }
+}
+
+class GenreXmoviesSeeder extends Seeder 
+{
+    public function run() 
+    {
+        //id 	name 	userName 	email 	hash 	rol 	auth 	block 	creditcard
+    
+        DB::table('genresXmovie')->insert([ 
+            'movie_id' => 1, 
+            'genre_id' => 1, 
+        ]);
+        DB::table('genresXmovie')->insert([ 
+            'movie_id' => 2, 
+            'genre_id' => 3, 
         ]);
     }
 }

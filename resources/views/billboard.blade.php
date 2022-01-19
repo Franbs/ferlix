@@ -9,12 +9,14 @@
 <div class="container mt-5">
   <form action="{{ route('search') }}" method="get">
     {{-- SEARCH BAR --}}
-    <div class="row height d-flex justify-content-center align-items-center">
+    <div class="row height d-flex justify-content-center align-items-center mb-4">
       <div class="col-md-6">
         <div>
           <input type="text" name="search" class="form-control form-input" placeholder="Buscar..."> 
-          <button class="btn btn-primary">Enviar</button>            
         </div>
+      </div>
+      <div class="col-md-1">
+        <button class="btn btn-primary">Enviar</button>            
       </div>
     </div>
     {{-- FILTERS --}}
@@ -22,23 +24,25 @@
       <div class="row justify-content-evenly ">
         <div class="dropdown mt-4 col-4 text-center">
           <select class="form-select" name="genre" id="genre_select">
-            <option value="action">Acción</option>
-            <option value="scienceFiction">Ciencia Ficción</option>
-            <option value="romance">Romance</option>
-            <option value="adventure">Aventuras</option>
-            <option value="cartoon">Dibujos animados</option>
+            <option value="" {{ old('genre') == "" ? "selected" : ""}}>Todas las categorias</option>
+            <option value="action" {{ old('genre') == "action" ? "selected" : ""}}>Acción</option>
+            <option value="scienceFiction" {{ old('genre') == "scienceFiction" ? "selected" : ""}}>Ciencia Ficción</option>
+            <option value="romance" {{ old('genre') == "romance" ? "selected" : ""}}>Romance</option>
+            <option value="adventure" {{ old('genre') == "adventure" ? "selected" : ""}}>Aventuras</option>
+            <option value="cartoon" {{ old('genre') == "cartoon" ? "selected" : ""}}>Dibujos animados</option>
           </select>
         </div>
         <div class="dropdown mt-4 col-4 text-center">
           <select class="form-select" name="dateSort" id="dateSort_select">
-            <option value="asc">Ascendiente</option>
-            <option value="desc">Descendiente</option>
+            <option value="asc" {{ old('dateSort') == "asc" ? "selected" : ""}}>Ascendiente</option>
+            <option value="desc" {{ old('dateSort') == "desc" ? "selected" : ""}}>Descendiente</option>
           </select>
         </div>
         <div class="dropdown mt-4 col-4 text-center">
-          <select class="form-select" name="movieSerie" id="movieSerie_select">
-            <option value="movie">Pelicula</option>
-            <option value="serie">Serie</option>
+          <select class="form-select" name="type" id="type_select">
+            <option value="" {{ old('type') == '' ? 'selected' : '' }}>Peliculas y series</option>
+            <option value="pelicula" {{ old('type') == 'pelicula' ? 'selected' : '' }}>Pelicula</option>
+            <option value="serie" {{ old('type') == 'serie' ? 'selected' : '' }}>Serie</option>
           </select>
         </div>
       </div>

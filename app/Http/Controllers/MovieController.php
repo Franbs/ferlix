@@ -19,14 +19,49 @@ class MovieController extends Controller
     {
         return view("/billboard")->with(["movies"=>$this->moviesModel->all()]);
     }
-
+    
     public function search(Request $request) {
-        $search = $request->input('search');
+        // dd($request);
+        // var_dump($request);
+        $request->flash();
+
+        $movies = $this->moviesModel->query();
+
+        if ($request->filled('genre')) {
+            $movies->genre($request->input('genre'));
+        }
+
+        if ($request->filled('dateSort')) {
+            $movies->sortDate($request->input('dateSort'));
+        }
+       
+
+        if ($request->filled('type')) {
+            $movies->type($request->input('type'));
+        }
+
+        if ($request->filled('search')) {
+            $movies->search($request->input('search'));
+        }
+
+        /*if ($request->filled('name')) {
+            $movies->name($request->input('name'));
+        }
+
+        if ($request->filled('category')) {
+            $movies->category($request->input('category'));
+        }*/
+
+        // $movies->joinGenre();
+
+        return view('billboard')->with('movies', $movies->get());
+
+        /*$search = $request->input('search');
 
         $users = DB::table('movies')
                 ->where('title', '=', '%'.$search.'%')
                 ->get();
 
-        return view('billboard', compact('movies'));
+        return view('billboard', compact('movies'));*/
     }
 }
