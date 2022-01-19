@@ -12,12 +12,8 @@ class Movie extends Model
     {
         return $query
             ->join('genresXmovie', 'movies.mo_id', '=', 'genresXmovie.movie_id')
-            ->join('genresXmovie', 'genresXmovie.genre_id', '=', 'genres.id')
-            ->where('genre', $input);
-
-        // $shares = DB::table('gen')->join('genres', 'genres.id', '=', 'movies')
-
-        // return $query->where('genre', $input);
+            ->join('genres', 'genresXmovie.genre_id', '=', 'genres.id')
+            ->where('genres.name', $input);
     }
 
     public function scopeJoinGenre($query)
