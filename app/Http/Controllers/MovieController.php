@@ -38,6 +38,10 @@ class MovieController extends Controller
             $movies->type($request->input('type'));
         }
 
+        if ($request->filled('search')) {
+            $movies->search($request->input('search'));
+        }
+
         /*if ($request->filled('name')) {
             $movies->name($request->input('name'));
         }

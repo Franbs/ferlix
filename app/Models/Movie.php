@@ -19,9 +19,15 @@ class Movie extends Model
     public function scopeSortDate($query, $input) {
         return $query->orderBy('year', $input);
     }
+
     public function scopeType($query, $input)
     {
         return $query->where('movies.type', $input);
+    }
+
+    public function scopeSearch($query, $input)
+    {
+        return $query->where(strtolower('title'),'like', '%' . strtolower($input) . '%' );
     }
 
 }
