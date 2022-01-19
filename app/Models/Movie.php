@@ -17,12 +17,11 @@ class Movie extends Model
     }
 
     public function scopeSortDate($query, $input) {
-        return $query
-            ->orderBy('year', $input);
+        return $query->orderBy('year', $input);
+    }
+    public function scopeType($query, $input)
+    {
+        return $query->where('movies.type', $input);
     }
 
-    public function scopeJoinGenre($query)
-    {
-        return $query->Leftjoin('genres', 'movies.category_id', '=', 'categories.id');
-    }
 }

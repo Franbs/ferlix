@@ -33,8 +33,12 @@ class MovieController extends Controller
             $movies->sortDate($request->input('dateSort'));
         }
 
-        /*
-        if ($request->filled('name')) {
+
+        if ($request->filled('type')) {
+            $movies->type($request->input('type'));
+        }
+
+        /*if ($request->filled('name')) {
             $movies->name($request->input('name'));
         }
 
