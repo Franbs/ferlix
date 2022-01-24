@@ -32,6 +32,8 @@ Route::get('/favorites/add/{id}', [FavoritesController::class, 'store'])->name('
 
 Route::get('/favorites/destroy', [FavoritesController::class, 'destroy'])->name('destroy');
 
+Route::get('/favorites/destroy/{id}', [FavoritesController::class, 'destroy'])->name('destroy');
+
 
 Route::get('/stream', function($id) {
     return redirect("/stream/" + $id);

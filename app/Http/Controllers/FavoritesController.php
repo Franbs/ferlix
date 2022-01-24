@@ -21,9 +21,26 @@ class FavoritesController extends Controller
         return redirect(url()->previous());
     }
 
-    public function destroy(Request $request)
+    public function destroy(Request $request, $id)
     {
-        $request->session()->forget("favoriteList");
+        $favoriteList = $request->session()->get("favoriteList", []);
+
+        if (is_null($id)) {
+            $request->session()->forget("favoriteList");
+        } else {
+            foreach ($favoriteList as $key => $value) {
+            var_dump($value, $id);
+               if ($value == $id) {
+                   var_dump("y");
+                   unset($favoriteList[$key]);
+                   break;
+               }
+            }
+        }
+
+        $request->session()->put("favoriteList", $favoriteList);
         return redirect(url()->previous());
     }
+
+    
 }
