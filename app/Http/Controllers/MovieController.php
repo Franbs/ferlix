@@ -64,4 +64,13 @@ class MovieController extends Controller
 
         return view('billboard', compact('movies'));*/
     }
+
+    public function getFavorites(Request $request)
+    {
+        $movies = $this->moviesModel->query();
+
+        $movies->idIn($request->session()->get("favoriteList"));
+        
+        return $movies->get();
+    }
 }

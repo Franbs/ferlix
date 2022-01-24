@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\MovieController;
 
 class FavoritesController extends Controller
 {
 
-    public function index(Request $request)
+    public function index(Request $request, MovieController $movieController)
     {
-        return view('user.favorites')->with('favoriteList', $request->session()->get('favoriteList'));
+        return view('user.favorites')->with('movies', $movieController->getFavorites($request));
     }
 
     public function store(Request $request, $id)

@@ -26,23 +26,31 @@ Route::get('/billboard', [MovieController::class, 'billboard'])->name('billboard
 
 Route::get('/search', [MovieController::class, 'search'])->name('search');
 
-Route::get('/favorites', [FavoritesController::class, 'index'])->name('favorites');
+Route::get('/favorites', [FavoritesController::class, 'index'])
+    ->middleware('auth')
+    ->name('favorites');
 
-Route::get('/favorites/add/{id}', [FavoritesController::class, 'store'])->name('addFavorite');
+Route::get('/favorites/add/{id}', [FavoritesController::class, 'store'])
+    ->middleware('auth')
+    ->name('addFavorite');
 
-Route::get('/favorites/destroy', [FavoritesController::class, 'destroy'])->name('destroy');
+Route::get('/favorites/destroy', [FavoritesController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('destroy');
 
-Route::get('/favorites/destroy/{id}', [FavoritesController::class, 'destroy'])->name('destroy');
+Route::get('/favorites/destroy/{id}', [FavoritesController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('destroy');
 
 
 Route::get('/stream', function($id) {
     return redirect("/stream/" + $id);
-})->name('stream');
+})->middleware('auth')->name('stream');
 
 Route::get('/stream/{id}', function($id) {
     // return redirect("/stream/" + $id);
     return view("user/stream")->with("movieID", $id);
-})->name('stream');
+})->middleware('auth')->name('stream');
 
 
 /* Administrador */
