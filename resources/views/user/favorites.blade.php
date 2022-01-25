@@ -1,12 +1,12 @@
 @extends("layouts.main")
 
-@section("page-title", "Favorites")
+@section("page-title", "Favoritos")
 
 @section("content")
 
 <div class="row mt-5">
     <div class="col text-center">
-        <h1>Favorites</h1>
+        <h1>Favoritos</h1>
     </div>
 </div>
 

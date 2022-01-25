@@ -35,7 +35,7 @@ class MovieSeeder extends Seeder
             'year' => 1972, 
             'synopsis' => 'The Godfather synopsis', 
             'duration' => '2h 55m', 
-            'type' => 'serie', 
+            'type' => 'pelicula', 
             'image' => 'http://localhost/img/billboard/godfather.jpg', 
             'file' => 'http://localhost/videos/godfather.mp4'
         ]);
@@ -47,7 +47,19 @@ class MovieSeeder extends Seeder
             'duration' => '2h 05m', 
             'type' => 'pelicula', 
             'image' => 'http://localhost/img/billboard/soy_leyenda.jpeg', 
-            'file' => 'idk2'
+            'file' => 'http://localhost/videos/soyLeyenda.mp4'
+        ]);
+
+        DB::table('movies')->insert([ 
+            'title' => 'Los simpson. Capitulo 1', 
+            'year' => 2000, 
+            'synopsis' => 'Los simpson son una familia de personas amarillas', 
+            'duration' => '30min', 
+            'type' => 'serie',
+            'episodio' => 1,
+            'serie_id' => 1, 
+            'image' => 'http://localhost/img/billboard/godfather.jpg', 
+            'file' => 'http://localhost/videos/godfather.mp4'
         ]);
     }
 }

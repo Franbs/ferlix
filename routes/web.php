@@ -39,12 +39,12 @@ Route::get('/favorites/add/{id}', [FavoritesController::class, 'store'])
 
 Route::get('/favorites/destroy', [FavoritesController::class, 'destroy'])
     ->middleware('auth')
-    ->name('destroy');
+    ->name('destroyFavorites');
 
     
 Route::get('/favorites/destroy/{id}', [FavoritesController::class, 'destroy'])
     ->middleware('auth')
-    ->name('destroy');
+    ->name('destroyFavorite');
 
 
 Route::get('/stream/{id}', function($id, MovieController $movieController, Request $request) {
