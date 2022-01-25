@@ -132,7 +132,12 @@ class GenreXmoviesSeeder extends Seeder
 
         DB::table('genresXmovie')->insert([ 
             'movie_id' => 2, 
-            'genre_id' => 3, 
+            'genre_id' => 4, 
+        ]);
+
+        DB::table('genresXmovie')->insert([ 
+            'movie_id' => 3, 
+            'genre_id' => 5, 
         ]);
     }
 }

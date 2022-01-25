@@ -44,10 +44,15 @@
             <h2>Descripción</h2>
         </div>
         <div class="col-2">
-            <button class="btn btn-primary float-end">Siguiente episodio</button>
+            {{ ((int)$movie["id"] + 1) }}
+            <a href="{{ route('stream', $movie->chapter((int)$movie["id"] + 1)) }}">
+                <button class="btn btn-primary float-end">Siguiente episodio</button>
+            </a>
         </div>
         <div class="col-2">
-            <button class="btn btn-primary float-end">Anterior episodio</button>
+            <a href="{{ route('stream', ['id' => $movie["id"]]) }}">
+                <button class="btn btn-primary float-end">Anterior episodio</button>
+            </a>
         </div>
     </div>
     <div class="row mt-3">
