@@ -14,7 +14,7 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-11">
-            <h1>{{ $movie["title"] }}</h1>
+            <h1>Text</h1>
         </div>
         <div class="col-1">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star float-end" viewBox="0 0 16 16">
@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col text-center">
             <video width="1280" height="720" controls>
-                <source src="{{ $movie["file"] }}" type="video/mp4">
+                <source src="" type="video/mp4">
                 Tu navegador no soporta este formato de video.
             </video>
         </div>
@@ -40,7 +40,7 @@
     </div>
     <div class="row mt-3">
         <div class="col">
-            <p>{{ $movie["synopsis"] }}</p>
+            <p>Some text</p>
         </div>
     </div>
 </div>

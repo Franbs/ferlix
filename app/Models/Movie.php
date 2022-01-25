@@ -30,9 +30,4 @@ class Movie extends Model
         return $query->where(strtolower('title'),'like', '%' . strtolower($input) . '%' );
     }
 
-    public function scopebtnVer($query, $input)
-    {
-        return $query->where(strtolower('title'),'like', '%' . strtolower($input) . '%' );
-    }
-
 }

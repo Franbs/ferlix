@@ -19,22 +19,6 @@ class MovieController extends Controller
     {
         return view("/billboard")->with(["movies"=>$this->moviesModel->all()]);
     }
-
-    public function stream(Request $request)
-    {
-        $request->flash();
-
-        $movies = $this->moviesModel->query();
-
-        if ($request->filled('btnVer')) {
-            $movies->btnVer($request->input('btnVer'));
-        }
-
-        $movies = $movies->get();
-        $movie = $movies[0];
-
-        return view('user/stream')->with('movie', $movie);
-    }
     
     public function search(Request $request) {
         // dd($request);
@@ -59,6 +43,14 @@ class MovieController extends Controller
         if ($request->filled('search')) {
             $movies->search($request->input('search'));
         }
+
+        /*if ($request->filled('name')) {
+            $movies->name($request->input('name'));
+        }
+
+        if ($request->filled('category')) {
+            $movies->category($request->input('category'));
+        }*/
 
         // $movies->joinGenre();
 
