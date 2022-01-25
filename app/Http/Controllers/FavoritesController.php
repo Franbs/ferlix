@@ -19,35 +19,39 @@ class FavoritesController extends Controller
     {
         $favorites = $request->session()->get('favoriteList', []);
 
-        // dd($movieController->stream($id)[0]["type"]);
-        if ($movieController->stream($id)[0]["type"] == "serie")
-            dd("a");
+        $var = $movieController->getChaptersOfSerie($id);
 
-        array_push($favorites, $id);
+        if ($movieController->stream($id)[0]["type"] == "serie") {
+            for ($i = 0; $i < sizeof($var); $i++) {
+                array_push($favorites, $var[$i]["id"]);
+            }
+        } else {
+            array_push($favorites, $id);
+        }
+
         $request->session()->put('favoriteList', $favorites);
+
         return redirect(url()->previous());
     }
 
-    public function destroy(Request $request, $id)
+    public function destroy(Request $request, $id = null)
     {
         $favoriteList = $request->session()->get("favoriteList", []);
-
+        // dump($favoriteList);
+        
         if (is_null($id)) {
+            
             $request->session()->forget("favoriteList");
         } else {
             foreach ($favoriteList as $key => $value) {
-            var_dump($value, $id);
-               if ($value == $id) {
-                   var_dump("y");
-                   unset($favoriteList[$key]);
-                   break;
-               }
+                if ($value == $id) {
+                    unset($favoriteList[$key]);
+                    break;
+                }
             }
         }
 
         $request->session()->put("favoriteList", $favoriteList);
         return redirect(url()->previous());
     }
-
-    
 }

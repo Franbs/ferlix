@@ -30,10 +30,9 @@ class MovieController extends Controller
         // $request->flash();
 
         $movie = $this->moviesModel->query();
-        // if (!isNull($id)) {
-            $movie->idIn(array($id));
-        // }
-        // dd($movie->get());
+        
+        $movie->idIn(array($id));
+
         return $movie->get();
     }
     
@@ -63,25 +62,27 @@ class MovieController extends Controller
             $movies->search($request->input('search'));
         }
 
-        // $movies->joinGenre();
 
         return view('billboard')->with('movies', $movies->get("movies.*"));
-
-        /*$search = $request->input('search');
-
-        $users = DB::table('movies')
-                ->where('title', '=', '%'.$search.'%')
-                ->get();
-
-        return view('billboard', compact('movies'));*/
     }
 
     public function getFavorites(Request $request)
     {
         $movies = $this->moviesModel->query();
 
-        $movies->idIn($request->session()->get("favoriteList", []));
+        $movies->idIn($request->session()->get("favoriteList", []))->whereIN("episodio", [null, 1]);
         
+        return $movies->get();
+    }
+
+    public function getChaptersOfSerie($id)
+    {
+        $movies = $this->moviesModel->query();
+        $movie = $this->moviesModel->query();
+        $movie->where("id", $id);
+        // dd($movie->get("serie_id")[0]["serie_id"]);
+        $movies->chaptersOfSerie($movie->get("serie_id")[0]["serie_id"]);
+        // dd($movies->get());
         return $movies->get();
     }
 }

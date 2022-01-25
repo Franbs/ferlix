@@ -37,7 +37,7 @@ Route::get('/favorites/add/{id}', [FavoritesController::class, 'store'])
     ->middleware('auth')
     ->name('addFavorite');
 
-Route::get('/favorites/destroy', [FavoritesController::class, 'destroy'])
+Route::get('/favorites/destroy', [FavoritesController::class, 'destroy', ["id" => null]])
     ->middleware('auth')
     ->name('destroyFavorites');
 

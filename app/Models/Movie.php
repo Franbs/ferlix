@@ -51,9 +51,19 @@ class Movie extends Model
         return $query->where("movies.episodio", $input)->where("movies.serie_id", "series.id");
     }
 
+    public function scopeSerie($query, $input)
+    {
+        return $query->rightJoin('series', 'movies.serie_id', '=', 'series.id')->where("movies.id", $input);
+    }
+
     public function scopeSeries($query)
     {
         return $query->rightJoin('series', 'movies.serie_id', '=', 'series.id');
+    }
+
+    public function scopeChaptersOfSerie($query, $id_serie)
+    {
+        return $query->where("serie_id", $id_serie);
     }
 
 }

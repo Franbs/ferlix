@@ -14,9 +14,12 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-11">
-            <h1>{{ $movie["title"] }}</h1>
+            @if ($movie["episodio"])
+                <h1>{{ $movie["title"] }}. Episodio: {{ $movie["episodio"] }}</h1>
+            @else
+                <h1>{{ $movie["title"] }} </h1>
+            @endif
         </div>
-        {{-- {{ dd(app("request")->session()->get("favoriteList")) }} --}}
         
         <div class="col-1">
             @if (in_array($movieID, app("request")->session()->get("favoriteList", [])))
@@ -47,8 +50,7 @@
         <div class="col">
             <h2>Descripción</h2>
         </div>
-        <div class="col-2">
-            {{ ((int)$movie["id"] + 1) }}
+        {{-- <div class="col-2">
             <a href="{{ route('stream', $movie->chapter((int)$movie["id"] + 1)) }}">
                 <button class="btn btn-primary float-end">Siguiente episodio</button>
             </a>
@@ -57,7 +59,7 @@
             <a href="{{ route('stream', ['id' => $movie["id"]]) }}">
                 <button class="btn btn-primary float-end">Anterior episodio</button>
             </a>
-        </div>
+        </div> --}}
     </div>
     <div class="row mt-3">
         <div class="col">
