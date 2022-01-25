@@ -7,7 +7,6 @@
 <section class="vh-100">
   <div class="container py-5 h-100">
     <div class="row d-flex align-items-center justify-content-center h-100">
-     
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
         <div class="text-center mb-2">
           <img src="/img/logo-transparent.png" alt="Logo" srcset="" height="200" style="background: transparent;">

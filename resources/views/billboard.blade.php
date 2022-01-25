@@ -65,7 +65,7 @@
               <img class="card-img-top" src="{{$movie["image"]}}" alt="">
               <div class="card-body text-center">
                 <h5 class="card-title">{{$movie["title"]}}</h5>
-                <a href="{{ route('stream') }}">
+                <a href="{{ route('stream', ['id' => $movie["id"]]) }}">
                   <button type="button" class="btn btn-outline-danger">Ver</button>
                 </a>
               </div>

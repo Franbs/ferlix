@@ -29,18 +29,27 @@
                     <div class="d-flex flex-row-reverse">
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="navbar-nav me-2 mb-2 mb-lg-0">
-                                @auth
-                                    <label class="me-5 mt-2">{{ auth()->user()->name }}</label>
-                                @endauth
                                 <a href="{{ route('billboard') }}">
                                     <li class="nav-item active"><button type="button" class="btn btn-outline-danger me-3">Cartelera</button></li>
                                 </a>
                                 @auth
-                                    <form action="{{ route('logout') }}" method="post">
-                                        @csrf
-                                        <button class="btn btn-outline-primary me-3" type="submit">Cerrar sesión</button>
-                                    </form>
+                                    <div class="dropdown">
+                                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                            {{ auth()->user()->name }}
+                                        </a>
+                                        <ul class="dropdown-menu p-1 w-auto" aria-labelledby="dropdownMenuLink">
+                                            <li class="my-1"> <a class="dropdown-item " href="{{ route("favorites") }}">Favoritos</a></li>
+                                            <li class="my-1">
+                                                <form action="{{ route('logout') }}" method="post">
+                                                    @csrf
+                                                    <button class="btn btn-warning" type="submit">Cerrar sesión</button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    {{-- <label class="me-5 mt-2">{{ auth()->user()->name }}</label> --}}
                                 @endauth
+                                
                                 @guest
                                     <a href="{{ route('login') }}">
                                         <li class="nav-item"><button type="button" class="btn btn-outline-primary me-3">Iniciar Sesión</button></li>
