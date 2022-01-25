@@ -47,11 +47,16 @@
         <div class="col">
             <h2>Descripción</h2>
         </div>
-        <div class="col">
-            <button class="btn btn-primary float-end">Siguiente episodio</button>
+        <div class="col-2">
+            {{ ((int)$movie["id"] + 1) }}
+            <a href="{{ route('stream', $movie->chapter((int)$movie["id"] + 1)) }}">
+                <button class="btn btn-primary float-end">Siguiente episodio</button>
+            </a>
         </div>
-        <div class="col">
-            <button class="btn btn-primary float-end">Anterior episodio</button>
+        <div class="col-2">
+            <a href="{{ route('stream', ['id' => $movie["id"]]) }}">
+                <button class="btn btn-primary float-end">Anterior episodio</button>
+            </a>
         </div>
     </div>
     <div class="row mt-3">

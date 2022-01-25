@@ -19,8 +19,10 @@ class CreateSeriesTable extends Migration
         });
 
         Schema::table('movies', function (Blueprint $table) {
+            $table->unsignedBigInteger('serie_id')->nullable();
+            //$table->foreignId("serie_id")->nullable();
+            $table->foreign('serie_id')->references('id')->on('series');
             $table->integer("episodio")->nullable();
-            $table->foreignId("serie_id")->constrained();
         });
     }
 

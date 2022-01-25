@@ -58,8 +58,9 @@
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-      @if($movies->isNotEmpty())
-        @foreach ($movies as $movie)
+      {{-- @if($movies->isNotEmpty()) --}}
+    @empty(!$movies)
+      @foreach ($movies as $movie)
         <div class="col">
           <div class="card shadow-sm">
             <img class="card-img-top" src="{{$movie["image"]}}" alt="">
@@ -76,7 +77,7 @@
         <div>
           <h2>No posts found</h2>
         </div>
-      @endif
+      @endempty
 
     </div>
   </div>

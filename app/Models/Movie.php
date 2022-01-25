@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\DB;
 
 class Movie extends Model
 {
+    // Show all the series and the first chapter of series
+    public function scopeIndex($query)
+    {
+        return $query->where("movies.episodio", 1)->orWhere("movies.type", "pelicula");
+    }
+
     public function scopeGenre($query, $input)
     {
         return $query
@@ -34,10 +40,20 @@ class Movie extends Model
     {
         return $query->whereIn("movies.id", $input);
     }
-    
-    public function scopebtnVer($query, $input)
+
+    public function scopeFirstChapter($query)
     {
-        return $query->where(strtolower('title'),'like', '%' . strtolower($input) . '%' );
+        return $query->where("movies.episodio", 1);
+    }
+
+    public function scopeChapter($query, $input)
+    {
+        return $query->where("movies.episodio", $input)->where("movies.serie_id", "series.id");
+    }
+
+    public function scopeSeries($query)
+    {
+        return $query->rightJoin('series', 'movies.serie_id', '=', 'series.id');
     }
 
 }
