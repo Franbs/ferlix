@@ -5,18 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\MovieController;
 
+
 class FavoritesController extends Controller
 {
+
 
     public function index(Request $request, MovieController $movieController)
     {
         return view('user.favorites')->with('movies', $movieController->getFavorites($request));
     }
 
-    public function store(Request $request, $id)
+    public function store(Request $request, MovieController $movieController, $id)
     {
         $favorites = $request->session()->get('favoriteList', []);
-        // array_push($favorites, $request->input('movieID'));
+
+        // dd($movieController->stream($id)[0]["type"]);
+        if ($movieController->stream($id)[0]["type"] == "serie")
+            dd("a");
+
         array_push($favorites, $id);
         $request->session()->put('favoriteList', $favorites);
         return redirect(url()->previous());
