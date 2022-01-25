@@ -46,6 +46,9 @@
         <div class="col">
             <button class="btn btn-primary float-end">Siguiente episodio</button>
         </div>
+        <div class="col">
+            <button class="btn btn-primary float-end">Anterior episodio</button>
+        </div>
     </div>
     <div class="row mt-3">
         <div class="col">
