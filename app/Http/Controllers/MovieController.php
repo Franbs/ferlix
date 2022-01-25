@@ -19,7 +19,10 @@ class MovieController extends Controller
 
     public function billboard()
     {
-        return view("/billboard")->with(["movies"=>$this->moviesModel->all()]);
+        $movies = $this->moviesModel->query();
+
+        //return view("/billboard")->with(["movies"=>$this->moviesModel->all()]);
+        return view('/billboard')->with('movies', $movies->index()->get("movies.*"));
     }
 
     public function stream($id)
@@ -40,6 +43,8 @@ class MovieController extends Controller
         $request->flash();
 
         $movies = $this->moviesModel->query();
+        
+        $movies->index();
 
         if ($request->filled('genre')) {
             $movies->genre($request->input('genre'));

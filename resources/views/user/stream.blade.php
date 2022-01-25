@@ -43,10 +43,10 @@
         <div class="col">
             <h2>Descripción</h2>
         </div>
-        <div class="col">
+        <div class="col-2">
             <button class="btn btn-primary float-end">Siguiente episodio</button>
         </div>
-        <div class="col">
+        <div class="col-2">
             <button class="btn btn-primary float-end">Anterior episodio</button>
         </div>
     </div>

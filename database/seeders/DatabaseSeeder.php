@@ -39,8 +39,8 @@ class MovieSeeder extends Seeder
             'type' => 'pelicula', 
             'image' => 'http://localhost/img/billboard/godfather.jpg', 
             'file' => 'http://localhost/videos/godfather.mp4',
-            'episodio' => 1,
-            'serie_id' => 1,
+            'episodio' => null,
+            'serie_id' => null,
         ]);
 
         DB::table('movies')->insert([ 
@@ -51,8 +51,8 @@ class MovieSeeder extends Seeder
             'type' => 'pelicula', 
             'image' => 'http://localhost/img/billboard/soy_leyenda.jpeg', 
             'file' => 'idk2',
-            'episodio' => 1,
-            'serie_id' => 2,
+            'episodio' => null,
+            'serie_id' => null,
         ]);
 
         DB::table('movies')->insert([ 
@@ -64,7 +64,7 @@ class MovieSeeder extends Seeder
             'image' => 'http://localhost/img/billboard/losSimpson.jpeg', 
             'file' => 'http://localhost/videos/losSimpsonEp1.mp4',
             'episodio' => 1,
-            'serie_id' => 3,
+            'serie_id' => 1,
         ]);
 
         DB::table('movies')->insert([ 
@@ -76,7 +76,7 @@ class MovieSeeder extends Seeder
             'image' => 'http://localhost/img/billboard/losSimpson.jpeg', 
             'file' => 'http://localhost/videos/losSimpsonEp2.mp4',
             'episodio' => 2,
-            'serie_id' => 3,
+            'serie_id' => 1,
         ]);
     }
 }
@@ -99,20 +99,22 @@ class GenreSeeder extends Seeder
 {
     public function run() 
     {
-        //id 	name 	userName 	email 	hash 	rol 	auth 	block 	creditcard
-    
         DB::table('genres')->insert([ 
             'name' => 'action' 
         ]);
+
         DB::table('genres')->insert([ 
             'name' => 'scienceFiction' 
         ]);
+
         DB::table('genres')->insert([ 
             'name' => 'romance' 
         ]);
+
         DB::table('genres')->insert([ 
             'name' => 'adventure' 
         ]);
+
         DB::table('genres')->insert([ 
             'name' => 'cartoon' 
         ]);
@@ -123,12 +125,11 @@ class GenreXmoviesSeeder extends Seeder
 {
     public function run() 
     {
-        //id 	name 	userName 	email 	hash 	rol 	auth 	block 	creditcard
-    
         DB::table('genresXmovie')->insert([ 
             'movie_id' => 1, 
             'genre_id' => 1, 
         ]);
+
         DB::table('genresXmovie')->insert([ 
             'movie_id' => 2, 
             'genre_id' => 3, 
@@ -140,14 +141,6 @@ class SerieSeeder extends Seeder
 {
     public function run() 
     {
-        DB::table('series')->insert([ 
-            'serie_name' => "The Godfather", 
-        ]);
-
-        DB::table('series')->insert([ 
-            'serie_name' => "Soy leyenda", 
-        ]);
-
         DB::table('series')->insert([ 
             'serie_name' => "Los Simpson", 
         ]);
