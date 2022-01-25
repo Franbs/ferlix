@@ -6,6 +6,9 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\FavoritesController;
+use Illuminate\Contracts\Session\Session;
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,18 +45,11 @@ Route::get('/favorites/destroy', [FavoritesController::class, 'destroy'])
 Route::get('/favorites/destroy/{id}', [FavoritesController::class, 'destroy'])
     ->middleware('auth')
     ->name('destroy');
-    
-Route::post('/stream', [MovieController::class, 'stream'])->name('stream');
 
-Route::get('/stream', function($id) {
-    return redirect("/stream/" + $id);
-})->middleware('auth')->name('stream');
 
-Route::get('/stream/{id}', function($id) {
-    // return redirect("/stream/" + $id);
-    return view("user/stream")->with("movieID", $id);
-})->middleware('auth')->name('stream');
-
+Route::get('/stream/{id}', function($id, MovieController $movieController, Request $request) {
+    return view("user/stream")->with("movieID", $id)->with("movie", $movieController->stream($id)[0]);
+})->middleware("auth")->name("stream");
 
 /* Administrador */
 // Route::get('/user-list', function() {

@@ -60,23 +60,17 @@
 
       @if($movies->isNotEmpty())
         @foreach ($movies as $movie)
-          <form action="{{ route('stream') }}" method="post">
-          {{--<form action="{{ route('stream', $movie["title"]) }}" method="post">--}}
-            @csrf
-            <div class="col">
-              <div class="card shadow-sm">
-                <img class="card-img-top" src="{{$movie["image"]}}" alt="">
-                <div class="card-body text-center">
-                  <h5 class="card-title">{{$movie["title"]}}</h5>
-                  {{--<a href="{{ route('stream', $movie) }}">--}}
-                    {{--<button type="submit" class="btn btn-outline-danger">Ver</button>--}}
-                    <input type="hidden" name="btnVer" value="{{ $movie["title"] }}">
-                    <input class="btn btn-outline-danger" type="submit" value="Ver">
-                  {{--</a>--}}
-                </div>
-              </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <img class="card-img-top" src="{{$movie["image"]}}" alt="">
+            <div class="card-body text-center">
+              <h5 class="card-title">{{$movie["title"]}}</h5>
+              <a href="{{ route('stream', ['id' => $movie["id"]]) /* route("stream")->with("id", $movie["id"]) */ }}">
+                <button type="button" class="btn btn-outline-danger">Ver</button>
+              </a>
             </div>
-          </form>
+          </div>
+        </div>
         @endforeach
       @else 
         <div>

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Movie;
 use Illuminate\Support\Facades\DB;
 
+use function PHPUnit\Framework\isNull;
+
 class MovieController extends Controller
 {
     public $moviesModel;
@@ -20,20 +22,16 @@ class MovieController extends Controller
         return view("/billboard")->with(["movies"=>$this->moviesModel->all()]);
     }
 
-    public function stream(Request $request)
+    public function stream($id)
     {
-        $request->flash();
+        // $request->flash();
 
-        $movies = $this->moviesModel->query();
-
-        if ($request->filled('btnVer')) {
-            $movies->btnVer($request->input('btnVer'));
-        }
-
-        $movies = $movies->get();
-        $movie = $movies[0];
-
-        return view('user/stream')->with('movie', $movie);
+        $movie = $this->moviesModel->query();
+        // if (!isNull($id)) {
+            $movie->idIn(array($id));
+        // }
+        // dd($movie->get());
+        return $movie->get();
     }
     
     public function search(Request $request) {
@@ -62,7 +60,7 @@ class MovieController extends Controller
 
         // $movies->joinGenre();
 
-        return view('billboard')->with('movies', $movies->get());
+        return view('billboard')->with('movies', $movies->get("movies.*"));
 
         /*$search = $request->input('search');
 
@@ -77,7 +75,7 @@ class MovieController extends Controller
     {
         $movies = $this->moviesModel->query();
 
-        $movies->idIn($request->session()->get("favoriteList"));
+        $movies->idIn($request->session()->get("favoriteList", []));
         
         return $movies->get();
     }
