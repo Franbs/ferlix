@@ -44,9 +44,6 @@ Route::get('/favorites/destroy/{id}', [FavoritesController::class, 'destroy'])
     ->name('destroy');
     
 Route::post('/stream', [MovieController::class, 'stream'])->name('stream');
-Route::get('/stream', function() {
-    return view("user/stream");
-})->name('stream');
 
 Route::get('/stream', function($id) {
     return redirect("/stream/" + $id);

@@ -14,7 +14,7 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-11">
-            <h1>Text</h1>
+            <h1>{{ $movie["title"] }}</h1>
         </div>
         {{-- {{ dd(app("request")->session()->get("favoriteList")) }} --}}
         
@@ -34,7 +34,7 @@
     <div class="row">
         <div class="col text-center">
             <video width="1280" height="720" controls>
-                <source src="" type="video/mp4">
+                <source src="{{ $movie["file"] }}" type="video/mp4">
                 Tu navegador no soporta este formato de video.
             </video>
         </div>
@@ -49,7 +49,7 @@
     </div>
     <div class="row mt-3">
         <div class="col">
-            <p>Some text</p>
+            <p>{{ $movie["synopsis"] }}</p>
         </div>
     </div>
 </div>
