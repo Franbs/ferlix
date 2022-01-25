@@ -38,10 +38,12 @@ Route::get('/favorites/destroy', [FavoritesController::class, 'destroy'])
     ->middleware('auth')
     ->name('destroy');
 
+    
 Route::get('/favorites/destroy/{id}', [FavoritesController::class, 'destroy'])
     ->middleware('auth')
     ->name('destroy');
-
+    
+Route::post('/stream', [MovieController::class, 'stream'])->name('stream');
 
 Route::get('/stream', function($id) {
     return redirect("/stream/" + $id);

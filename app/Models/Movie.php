@@ -34,5 +34,10 @@ class Movie extends Model
     {
         return $query->whereIn("movies.id", $input);
     }
+    
+    public function scopebtnVer($query, $input)
+    {
+        return $query->where(strtolower('title'),'like', '%' . strtolower($input) . '%' );
+    }
 
 }
