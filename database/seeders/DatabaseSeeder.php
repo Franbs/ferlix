@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(SerieSeeder::class);
         $this->call(MovieSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(GenreSeeder::class);
@@ -37,7 +38,9 @@ class MovieSeeder extends Seeder
             'duration' => '2h 55m', 
             'type' => 'pelicula', 
             'image' => 'http://localhost/img/billboard/godfather.jpg', 
-            'file' => 'http://localhost/videos/godfather.mp4'
+            'file' => 'http://localhost/videos/godfather.mp4',
+            'episodio' => 1,
+            'serie_id' => 1,
         ]);
 
         DB::table('movies')->insert([ 
@@ -47,19 +50,33 @@ class MovieSeeder extends Seeder
             'duration' => '2h 05m', 
             'type' => 'pelicula', 
             'image' => 'http://localhost/img/billboard/soy_leyenda.jpeg', 
-            'file' => 'http://localhost/videos/soyLeyenda.mp4'
+            'file' => 'idk2',
+            'episodio' => 1,
+            'serie_id' => 2,
         ]);
 
         DB::table('movies')->insert([ 
-            'title' => 'Los simpson. Capitulo 1', 
-            'year' => 2000, 
-            'synopsis' => 'Los simpson son una familia de personas amarillas', 
-            'duration' => '30min', 
-            'type' => 'serie',
+            'title' => 'Los Simpson', 
+            'year' => 1987, 
+            'synopsis' => 'Los simpsons synopsis', 
+            'duration' => '40m', 
+            'type' => 'serie', 
+            'image' => 'http://localhost/img/billboard/losSimpson.jpeg', 
+            'file' => 'http://localhost/videos/losSimpsonEp1.mp4',
             'episodio' => 1,
-            'serie_id' => 1, 
-            'image' => 'http://localhost/img/billboard/godfather.jpg', 
-            'file' => 'http://localhost/videos/godfather.mp4'
+            'serie_id' => 3,
+        ]);
+
+        DB::table('movies')->insert([ 
+            'title' => 'Los Simpson', 
+            'year' => 1987, 
+            'synopsis' => 'Los simpsons synopsis', 
+            'duration' => '40m', 
+            'type' => 'serie', 
+            'image' => 'http://localhost/img/billboard/losSimpson.jpeg', 
+            'file' => 'http://localhost/videos/losSimpsonEp2.mp4',
+            'episodio' => 2,
+            'serie_id' => 3,
         ]);
     }
 }
@@ -115,6 +132,24 @@ class GenreXmoviesSeeder extends Seeder
         DB::table('genresXmovie')->insert([ 
             'movie_id' => 2, 
             'genre_id' => 3, 
+        ]);
+    }
+}
+
+class SerieSeeder extends Seeder 
+{
+    public function run() 
+    {
+        DB::table('series')->insert([ 
+            'serie_name' => "The Godfather", 
+        ]);
+
+        DB::table('series')->insert([ 
+            'serie_name' => "Soy leyenda", 
+        ]);
+
+        DB::table('series')->insert([ 
+            'serie_name' => "Los Simpson", 
         ]);
     }
 }
