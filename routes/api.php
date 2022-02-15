@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Resources\MovieCollection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Resources\UserCollection;
+use App\Models\Movie;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +20,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('/users', function () {
+    return new UserCollection(User::all());
+});
+
+Route::get('/movies', function () {
+    return new MovieCollection(Movie::all());
 });
