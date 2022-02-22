@@ -85,4 +85,15 @@ class MovieController extends Controller
         // dd($movies->get());
         return $movies->get();
     }
+
+    public function viewWithId(Request $request)
+    {
+        $movie = Movie::find($request->id);
+
+        if (!$movie) {
+            return response()->json(['errors' => array(['code' => 404, 'message' => 'Product not found'])], 404);
+        }
+
+        return response()->json($movie, 200);
+    }
 }

@@ -26,6 +26,8 @@ Route::get('/users', function () {
     return new UserCollection(User::all());
 });
 
-Route::get('/movies', function () {
+Route::get('/billboard', function () {
     return new MovieCollection(Movie::all());
 });
+
+Route::get('/stream/{id}', [MovieController::class, 'viewWithId']);
