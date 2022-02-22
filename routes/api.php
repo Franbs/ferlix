@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MovieController;
 use App\Http\Resources\MovieCollection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
