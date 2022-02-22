@@ -86,6 +86,21 @@ class MovieController extends Controller
         return $movies->get();
     }
 
+    public function store(Request $request)
+    {
+        // id 	title 	year 	synopsis 	duration 	type 	image 	file 	serie_id 	episodio 	
+        if (!$request->input('title') || !$request->input('year') || !$request->input('synopsis') || !$request->input('duration') || !$request->input('type') || !$request->input('image') || !$request->input('file')) {
+            return response()->json(['errors' => array(["Status" => "fail", 'code' => 422, 'message' => 'Data missing'])], 422);
+        }
+
+        if (($request->input('type') == 'serie') && (!$request->input('serie_id') || !$request->input('serie_id'))) {
+            return response()->json(['errors' => array(["Status" => "fail", 'code' => 422, 'message' => 'Data missing'])], 422);
+        }
+
+        $movie = Movie::create($request->all());
+        return response()->json($movie, 200);
+    }
+
     public function viewWithId(Request $request)
     {
         $movie = Movie::find($request->id);

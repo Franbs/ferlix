@@ -30,4 +30,6 @@ Route::get('/billboard', function () {
     return new MovieCollection(Movie::all());
 });
 
+Route::post('/movie', [MovieController::class, 'store']);
+
 Route::get('/stream/{id}', [MovieController::class, 'viewWithId']);
