@@ -111,4 +111,44 @@ class MovieController extends Controller
 
         return response()->json($movie, 200);
     }
+
+    public function updateMovie(Request $request)
+    {
+        $movie = Movie::find($request->id);
+
+        if (!$movie) {
+            return response()->json(['errors' => array(['code' => 404, 'message' => 'Product not found'])], 404);
+        }
+
+        $movie->id = $request->id;
+        $movie->title = $request->title;
+        $movie->year = $request->year;
+        $movie->synopsis = $request->synopsis;
+        $movie->duration = $request->duration;
+        $movie->type = $request->type;
+        $movie->image = $request->image;
+        $movie->file = $request->file;
+        $movie->serie_id = $request->serie_id;
+        $movie->episodio = $request->episodio;
+
+        $movie->update();
+
+        return response()->json($movie, 200);
+    }
+
+    public function deleteMovie(Request $request)
+    {
+        //dd($request->name);
+        $movie = Movie::find($request->id);
+
+        if (!$movie) {
+            return response()->json(['errors' => array(['code' => 404, 'message' => 'Product not found'])], 404);
+        }
+
+        $movie->delete();
+
+        $movies = Movie::all();
+
+        return response()->json($movies, 200);
+    }
 }

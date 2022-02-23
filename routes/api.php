@@ -34,3 +34,7 @@ Route::get('/billboard', function () {
 Route::post('/movie', [MovieController::class, 'store']);
 
 Route::get('/stream/{id}', [MovieController::class, 'viewWithId']);
+
+Route::put('/updateMovie', [MovieController::class, 'updateMovie']);
+
+Route::get('/movieDel/{id}', [MovieController::class, 'deleteMovie']);
