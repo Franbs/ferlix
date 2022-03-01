@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Resources\UserCollection;
 use App\Models\Movie;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +40,19 @@ Route::get('/stream/{id}', [MovieController::class, 'viewWithId']);
 Route::put('/updateMovie', [MovieController::class, 'updateMovie']);
 
 Route::get('/movieDel/{id}', [MovieController::class, 'deleteMovie']);
+
+/*Route::middleware('auth:sanctum')->post('/tokens/create', function (Request $request) {
+    $token = $request->user()->createToken($request->token_name);
+ 
+    return ['token' => $token->plainTextToken];
+});*/
+
+//Protecting Routes
+/*Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('/profile', function(Request $request) {
+        return auth()->user();
+    });
+
+    // API route for logout user
+    Route::post('/logout', [App\Http\Controllers\API\AuthController::class, 'logout']);
+});*/

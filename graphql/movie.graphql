@@ -1,0 +1,31 @@
+"""
+Definimos  el type, algunos query y mutations del usuario
+"""
+
+type Movie {
+  id: ID!
+  title: String!
+  year: String
+  synopsis: String
+  duration: String
+  type: String
+  image: String
+  file: String
+  serie_id: Int
+  episodio: Int
+}
+
+type Category {
+  id: ID!
+  name: String!
+}
+
+extend type Query {
+  movie(id: ID! @eq): Movie @find
+  movies: [Movie!]! @all
+}
+
+extend type Mutation {
+  createMovie(title: String!, year: String!, synopsis: String!, duration: String!, type: String!, image: String!, file: String!, serie_id: String!, episodio: String!,): Movie @create
+  deleteMovie(id: Int!): Movie @delete
+}
