@@ -53,7 +53,6 @@ class MovieController extends Controller
             $movies->sortDate($request->input('dateSort'));
         }
        
-
         if ($request->filled('type')) {
             $movies->type($request->input('type'));
         }
@@ -61,7 +60,6 @@ class MovieController extends Controller
         if ($request->filled('search')) {
             $movies->search($request->input('search'));
         }
-
 
         return view('billboard')->with('movies', $movies->get("movies.*"));
     }

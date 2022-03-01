@@ -41,11 +41,9 @@ Route::get('/favorites/destroy', [FavoritesController::class, 'destroy', ["id" =
     ->middleware('auth')
     ->name('destroyFavorites');
 
-    
 Route::get('/favorites/destroy/{id}', [FavoritesController::class, 'destroy'])
     ->middleware('auth')
     ->name('destroyFavorite');
-
 
 Route::get('/stream/{id}', function($id, MovieController $movieController, Request $request) {
     return view("user/stream")->with("movieID", $id)->with("movie", $movieController->stream($id)[0]);
