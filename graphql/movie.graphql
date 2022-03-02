@@ -26,6 +26,6 @@ extend type Query {
 }
 
 extend type Mutation {
-  createMovie(title: String!, year: String!, synopsis: String!, duration: String!, type: String!, image: String!, file: String!, serie_id: String!, episodio: String!,): Movie @create
+  createMovie(title: String!, year: String!, synopsis: String!, duration: String!, type: String!, image: String!, file: String!, serie_id: String, episodio: String): Movie @create
   deleteMovie(id: Int!): Movie @delete
 }

@@ -2,6 +2,7 @@ type User {
   id: ID!
   name: String!
   email: String!
+  rol: String!
 }
 
 extend type Query {
@@ -10,5 +11,5 @@ extend type Query {
 }
 
 extend type Mutation {
-  createUser(name: String!, email: String!, password: String!): User @create
+  createUser(name: String!, email: String!, password: String!, rol: String!): User @create
 }
